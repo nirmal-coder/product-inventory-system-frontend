@@ -56,7 +56,7 @@ const Signup = ({ setToken }) => {
         }
       }
     } catch (error) {
-      toast.error(error.response.data.message || "something went wrong!");
+      toast.error(error?.response?.data?.message || "something went wrong!");
       console.log(error);
     }
   };
