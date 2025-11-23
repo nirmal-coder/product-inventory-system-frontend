@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import { Route, Routes } from "react-router-dom";
 import Add from "./pages/Add";
 import List from "./pages/List";
 
-import { ToastContainer } from "react-toastify";
-
-import Signup from "./components/signup";
+import Signup from "./components/Signup";
 import Cookies from "js-cookie";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const [token, setToken] = useState(Cookies.get("token") || null);
