@@ -36,7 +36,7 @@ const MiniHeader = ({ refetch }) => {
       a.href = url;
 
       // Set desired file name
-      a.download = "products.xlsx";
+      a.download = "products.csv";
 
       // Append, click, and remove the element
       document.body.appendChild(a);
