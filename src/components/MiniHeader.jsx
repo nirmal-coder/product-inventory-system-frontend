@@ -5,11 +5,13 @@ import { categories } from "../assets/assets";
 import { SearchContext } from "../Context/SearchContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Cookies from "js-cookie";
 
 const MiniHeader = ({ refetch }) => {
   const { search, setSearch, handleCategoryFilter, filterCategory } =
     useContext(SearchContext);
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const token = Cookies.get("token");
   const handleExport = () => {
     window.open(backendUrl + `/api/products/export`);
   };
@@ -31,7 +33,12 @@ const MiniHeader = ({ refetch }) => {
     const response = await axios.post(
       backendUrl + "/api/products/import",
       formData,
-      { headers: { "Content-Type": "multipart/form-data" } }
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      }
     );
 
     console.log(response.data);

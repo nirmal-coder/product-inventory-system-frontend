@@ -37,8 +37,6 @@ const List = ({ token }) => {
     backendUrl +
     `/api/product?page=${currentPage}&limit=10&search=${search}&category=${filterCategory}`;
 
-  console.log("token => from frontend => ", token);
-
   const {
     loading,
     error,
@@ -49,8 +47,6 @@ const List = ({ token }) => {
       Authorization: `Bearer ${token}`, // ✅ this is the correct format
     },
   });
-
-  console.log("RAW TOKEN FROM FRONTEND ->", JSON.stringify(token));
 
   const list = apiData?.data || [];
 

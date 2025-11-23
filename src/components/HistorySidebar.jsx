@@ -1,11 +1,17 @@
 import React from "react";
 import useGetApi from "../hooks/useGetApi";
-
+import Cookies from "js-cookie";
 const HistorySidebar = ({ selectedProduct, setOpen, open }) => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const token = Cookies.get("token");
 
   const { loading, data, error } = useGetApi(
-    backendUrl + `/api/products/${selectedProduct.id}/history`
+    backendUrl + `/api/products/${selectedProduct.id}/history`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`, // ✅ this is the correct format
+      },
+    }
   );
 
   const history = data?.data || [];
