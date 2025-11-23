@@ -22,7 +22,7 @@ const Signup = ({ setToken }) => {
           toast.warning("All Fields are required!");
           return;
         } else {
-          const response = await axios.post(backendUrl + "api/signup", {
+          const response = await axios.post(backendUrl + "/api/signup", {
             email: emailId,
             password,
             name: username,
@@ -40,7 +40,7 @@ const Signup = ({ setToken }) => {
           toast.warning("All Fields are required!");
           return;
         } else {
-          const response = await axios.post(backendUrl + "api/login", {
+          const response = await axios.post(backendUrl + "/api/login", {
             email: emailId,
             password,
           });
