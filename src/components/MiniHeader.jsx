@@ -12,8 +12,43 @@ const MiniHeader = ({ refetch }) => {
     useContext(SearchContext);
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const token = Cookies.get("token");
-  const handleExport = () => {
-    window.open(backendUrl + `/api/products/export`);
+  const handleExport = async () => {
+    try {
+      const response = await fetch(`${backendUrl}/api/products/export`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`, // send your auth token
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to download file");
+      }
+
+      // Convert response to Blob
+      const blob = await response.blob();
+
+      // Create temporary URL for download
+      const url = window.URL.createObjectURL(blob);
+
+      // Create temporary <a> element and trigger download
+      const a = document.createElement("a");
+      a.href = url;
+
+      // Set desired file name
+      a.download = "products.xlsx";
+
+      // Append, click, and remove the element
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      // Revoke object URL to free memory
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Export failed:", error);
+      alert("Failed to export products. Please try again.");
+    }
   };
 
   const fileInputRef = useRef();
