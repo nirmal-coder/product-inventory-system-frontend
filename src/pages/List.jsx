@@ -99,6 +99,14 @@ const List = ({ token }) => {
     }
   }, [apiData]);
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth", // makes the scroll smooth
+    });
+  }, []);
+
   const renderUi = () => {
     if (loading) {
       return <ProductListShimmer />;
