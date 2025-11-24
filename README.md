@@ -1,16 +1,63 @@
-# React + Vite
+# Product Inventory — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React frontend for the Product Inventory Management System  
+**Tech:** React, React Router, Axios, Tailwind , react-toastify
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo / Submission
+- **GitHub:** https://github.com/nirmal-coder/product-inventory-system-frontend
+- **Live app:** https://pism-frontend.netlify.app/ 
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## About
+This React app provides:
+- Product search & category filtering
+- Products table with inline editing (row-level)
+- Import / Export CSV
+- Inventory history sidebar (slides in on row click)
+- Add/Edit/Delete product flows
+- Responsive layout and basic accessibility
 
-## Expanding the ESLint configuration
+This frontend expects the backend APIs described in the backend README.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Features (implemented)
+- Search bar calling 
+- Category dropdown to filter displayed products 
+- Add New Product (form)
+- Import (CSV upload) & Export (download CSV) buttons in header
+- Products table columns: `Image | Name | Unit | Category | Brand | Stock | Status | Actions`
+  - Stock status color-coded: In Stock (green), Out of Stock (red)
+- Inline editing (Save / Cancel) for rows — Save calls 
+- Product row click opens Inventory History sidebar 
+- Toaster notifications for success / error and loading states
+
+---
+
+## Screenshots
+![Login](https://res.cloudinary.com/doov17zaw/image/upload/v1764000376/PIMS_-_Google_Chrome_24-11-2025_21_29_38_mkm86l.png)
+![Products List](https://res.cloudinary.com/doov17zaw/image/upload/v1764000376/PIMS_-_Google_Chrome_24-11-2025_21_29_07_i0ulfq.png)
+![Add new Product](https://res.cloudinary.com/doov17zaw/image/upload/v1764000376/PIMS_-_Google_Chrome_24-11-2025_21_29_12_emhde9.png)
+![Inventory History](https://res.cloudinary.com/doov17zaw/image/upload/v1764000377/PIMS_-_Google_Chrome_24-11-2025_21_29_30_jw5eyb.png)
+
+---
+
+## Getting started (local)
+
+### Prerequisites
+- Node.js >= 16
+- npm or yarn
+- Running backend API (see backend README) or mock server
+
+### Install & run
+```bash
+git clone https://github.com/nirmal-coder/product-inventory-system-frontend
+cd inventory-frontend
+npm install
+# start dev server
+npm start
+# build for production
+npm run build
