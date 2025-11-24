@@ -7,8 +7,8 @@ import { assets } from "../assets/assets";
 
 const Signup = ({ setToken }) => {
   const [currentState, setCurrentState] = useState("Login");
-  const [emailId, setEmailId] = useState("nirmal@gmail.com");
-  const [password, setPassword] = useState("nirmal@123");
+  const [emailId, setEmailId] = useState("");
+  const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
@@ -77,7 +77,7 @@ const Signup = ({ setToken }) => {
           <input
             type="text"
             className="w-full px-3 py-2 border border-gray-800"
-            placeholder="Name"
+            placeholder="nirmal"
             required
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -86,7 +86,7 @@ const Signup = ({ setToken }) => {
         <input
           type="email"
           className="w-full px-3 py-2 border border-gray-800"
-          placeholder="Email"
+          placeholder="nirmal@gmail.com or yours"
           required
           value={emailId}
           onChange={(e) => setEmailId(e.target.value)}
@@ -94,7 +94,7 @@ const Signup = ({ setToken }) => {
         <input
           type="password"
           className="w-full px-3 py-2 border border-gray-800"
-          placeholder="Password"
+          placeholder="nirmal@123 or yours"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}

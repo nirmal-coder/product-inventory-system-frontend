@@ -137,7 +137,7 @@ const ProductList = ({ props }) => {
             <span className="md:hidden font-medium text-gray-700">
               Status :{" "}
             </span>
-            {item?.status || item.stock > 0 ? "In Stock" : "Out of Stock"}
+            {item.stock > 0 ? "In Stock" : "Out of Stock"}
           </p>
 
           {/* ✅ Delete */}
