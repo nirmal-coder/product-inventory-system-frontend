@@ -77,7 +77,7 @@ const Signup = ({ setToken }) => {
           <input
             type="text"
             className="w-full px-3 py-2 border border-gray-800"
-            placeholder="nirmal  or  your Name"
+            placeholder="Name"
             required
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -86,7 +86,11 @@ const Signup = ({ setToken }) => {
         <input
           type="email"
           className="w-full px-3 py-2 border border-gray-800"
-          placeholder="nirmal@gmail.com or your Email Id"
+          placeholder={`${
+            currentState === "Sign up"
+              ? "Email"
+              : "nirmal@gmail.com or your Email Id"
+          }`}
           required
           value={emailId}
           onChange={(e) => setEmailId(e.target.value)}
@@ -94,7 +98,11 @@ const Signup = ({ setToken }) => {
         <input
           type="password"
           className="w-full px-3 py-2 border border-gray-800"
-          placeholder="nirmal@123 or your Password"
+          placeholder={`${
+            currentState === "Sign up"
+              ? "Password"
+              : "nirmal@123 or your password"
+          }`}
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
