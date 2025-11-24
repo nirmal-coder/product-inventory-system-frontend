@@ -6,8 +6,8 @@ React frontend for the Product Inventory Management System
 ---
 
 ## Demo / Submission
-- **GitHub:** `https://github.com/nirmal-coder/product-inventory-system-frontend`
-- **Live app:** `https://pism-frontend.netlify.app/`  
+- **GitHub:** https://github.com/nirmal-coder/product-inventory-system-frontend
+- **Live app:** https://pism-frontend.netlify.app/ 
 
 ---
 
