@@ -40,7 +40,7 @@ const HistorySidebar = ({ selectedProduct, setOpen, open }) => {
           {history.map((log) => (
             <div key={log.id} className="p-3 border rounded-lg">
               <div>
-                <b>Date:</b> {new Date(log.change_date).toLocaleString()}
+                <b>Date:</b> {log.change_date}
               </div>
               <div>
                 <b>Old Stock:</b> {log.old_quantity}
