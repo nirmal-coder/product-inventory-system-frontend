@@ -1,5 +1,6 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import Cookies from "js-cookie";
 
 const Navbar = ({ setToken }) => {
   return (
@@ -10,7 +11,10 @@ const Navbar = ({ setToken }) => {
         alt=""
       />
       <button
-        onClick={() => setToken("")}
+        onClick={() => {
+          setToken("");
+          Cookies.remove("token");
+        }}
         className="bg-gray-600 text-white px-5 py-2 sm:py-2 rounded-full text-xs "
       >
         Logout
