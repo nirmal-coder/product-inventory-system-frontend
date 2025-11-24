@@ -105,7 +105,7 @@ const List = ({ token }) => {
       left: 0,
       behavior: "smooth", // makes the scroll smooth
     });
-  }, []);
+  }, [list]);
 
   const renderUi = () => {
     if (loading) {
