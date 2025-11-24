@@ -6,7 +6,7 @@ import { replace, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 const Signup = ({ setToken }) => {
-  const [currentState, setCurrentState] = useState("Login");
+  const [currentState, setCurrentState] = useState("Sign up");
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -77,7 +77,7 @@ const Signup = ({ setToken }) => {
           <input
             type="text"
             className="w-full px-3 py-2 border border-gray-800"
-            placeholder="nirmal"
+            placeholder="nirmal  or  your Name"
             required
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -86,7 +86,7 @@ const Signup = ({ setToken }) => {
         <input
           type="email"
           className="w-full px-3 py-2 border border-gray-800"
-          placeholder="nirmal@gmail.com or yours"
+          placeholder="nirmal@gmail.com or your Email Id"
           required
           value={emailId}
           onChange={(e) => setEmailId(e.target.value)}
@@ -94,7 +94,7 @@ const Signup = ({ setToken }) => {
         <input
           type="password"
           className="w-full px-3 py-2 border border-gray-800"
-          placeholder="nirmal@123 or yours"
+          placeholder="nirmal@123 or your Password"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
