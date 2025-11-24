@@ -8,6 +8,7 @@ import List from "./pages/List";
 import Signup from "./components/Signup";
 import Cookies from "js-cookie";
 import { ToastContainer } from "react-toastify";
+import NotFound from "./components/NotFound";
 
 const App = () => {
   const [token, setToken] = useState(Cookies.get("token") || null);
@@ -27,6 +28,7 @@ const App = () => {
               <Routes>
                 <Route path="/add" element={<Add token={token} />} />
                 <Route path="/" element={<List token={token} />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
           </div>
