@@ -68,7 +68,7 @@ const Signup = ({ setToken }) => {
               isLoading: false,
               autoClose: 2000,
             });
-            Cookies.set("token", response.data.token);
+            Cookies.set("token", response.data.token, { expires: 7 });
             console.log(response.data.token);
             setToken(response.data.token);
             navigate("/", replace);
