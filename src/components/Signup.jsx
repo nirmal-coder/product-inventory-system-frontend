@@ -15,6 +15,7 @@ const Signup = ({ setToken }) => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    let toastId = toast.loading("loading...");
 
     try {
       if (currentState === "Sign up") {
@@ -29,15 +30,31 @@ const Signup = ({ setToken }) => {
           });
           if (response.data.success) {
             toast.success(response.data.message);
+            toast.update(toastId, {
+              render: response.data.message,
+              type: "success",
+              isLoading: false,
+              autoClose: 2000,
+            });
 
             setCurrentState("Login");
           } else {
-            toast.error(response.data.message);
+            toast.update(toastId, {
+              render: response.data.message,
+              type: "error",
+              isLoading: false,
+              autoClose: 2000,
+            });
           }
         }
       } else {
         if (!emailId.trim() || !password.trim()) {
-          toast.warning("All Fields are required!");
+          toast.update(toastId, {
+            render: "All Fields are required!",
+            type: "warning",
+            isLoading: false,
+            autoClose: 2000,
+          });
           return;
         } else {
           const response = await axios.post(backendUrl + "/api/login", {
@@ -45,19 +62,34 @@ const Signup = ({ setToken }) => {
             password,
           });
           if (response.data.success) {
-            toast.success(response.data.message);
+            toast.update(toastId, {
+              render: response.data.message,
+              type: "success",
+              isLoading: false,
+              autoClose: 2000,
+            });
             Cookies.set("token", response.data.token);
             console.log(response.data.token);
             setToken(response.data.token);
             navigate("/", replace);
           } else {
-            toast.error(response.data.message);
+            toast.update(toastId, {
+              render: response.data.message,
+              type: "error",
+              isLoading: false,
+              autoClose: 2000,
+            });
           }
         }
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message || "something went wrong!");
       console.log(error);
+      toast.update(toastId, {
+        render: error?.response?.data?.message || "something went wrong!",
+        type: "error",
+        isLoading: false,
+        autoClose: 2000,
+      });
     }
   };
 
